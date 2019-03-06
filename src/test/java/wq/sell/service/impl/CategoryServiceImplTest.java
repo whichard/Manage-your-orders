@@ -16,6 +16,7 @@ import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CategoryServiceImplTest {
+
     @Autowired
     private CategoryServiceImpl categoryService;
     @Test
@@ -38,5 +39,8 @@ public class CategoryServiceImplTest {
 
     @Test
     public void save() {
+        ProductCategory productCategory = new ProductCategory("haha",10);
+        ProductCategory result = categoryService.save(productCategory);
+        Assert.assertNotNull(result);
     }
 }
