@@ -1,5 +1,6 @@
 package wq.sell.service;
 
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import wq.sell.dataobject.ProductCategory;
 import wq.sell.dataobject.ProductInfo;
@@ -11,7 +12,7 @@ public interface ProductService {
     /**查询所有在架商品*/
     List<ProductInfo> findUpAll();
 
-    List<ProductInfo> findAll(Pageable pageable);
+    Page<ProductInfo> findAll(Pageable pageable);
 
     ProductInfo save(ProductInfo productInfo);
 
