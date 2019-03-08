@@ -17,6 +17,7 @@ import wq.sell.service.OrderService;
 import wq.sell.service.ProductService;
 import wq.sell.utils.KeyUtil;
 
+import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -34,6 +35,7 @@ public class OrderServiceImpl implements OrderService {
     private OrderMasterRepository orderMasterRepository;
 
     @Override
+    @Transactional
     public OrderDTO create(OrderDTO orderDTO) {
 
         String orderId = KeyUtil.genUniqueKey();
@@ -45,7 +47,7 @@ public class OrderServiceImpl implements OrderService {
             if(productInfo == null)
                 throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
 //        2. 计算总价
-            orderAmount = orderDetail.getProductPrice()
+            orderAmount = productInfo.getProductPrice()
                     .multiply(new BigDecimal(orderDetail.getProductQuantity()))
                     .add(orderAmount);
 //            订单详情,写入数据库
@@ -66,7 +68,7 @@ public class OrderServiceImpl implements OrderService {
 
 //        4. 扣库存
         productService.decreaseStock(cartDTOList);
-        return null;
+        return orderDTO;
 
     }
 
