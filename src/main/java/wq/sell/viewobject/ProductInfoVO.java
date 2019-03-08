@@ -1,9 +1,8 @@
-package wq.sell.vo;
+package wq.sell.viewobject;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
-import javax.persistence.Id;
 import java.math.BigDecimal;
 
 @Data

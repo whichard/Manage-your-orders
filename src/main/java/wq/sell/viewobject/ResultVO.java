@@ -1,4 +1,4 @@
-package wq.sell.vo;
+package wq.sell.viewobject;
 
 import lombok.Data;
 

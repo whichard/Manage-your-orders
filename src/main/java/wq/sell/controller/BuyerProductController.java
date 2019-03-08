@@ -9,9 +9,9 @@ import wq.sell.dataobject.ProductCategory;
 import wq.sell.dataobject.ProductInfo;
 import wq.sell.service.CategoryService;
 import wq.sell.service.ProductService;
-import wq.sell.vo.ProductInfoVO;
-import wq.sell.vo.ProductVO;
-import wq.sell.vo.ResultVO;
+import wq.sell.viewobject.ProductInfoVO;
+import wq.sell.viewobject.ProductVO;
+import wq.sell.viewobject.ResultVO;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -59,7 +59,7 @@ public class BuyerProductController {
 
         resultVO.setCode(0);
         resultVO.setMsg("Succeed");
-        resultVO.setData(Arrays.asList(productVOList));
+        resultVO.setData(productVOList);
         return resultVO;
     }
 
