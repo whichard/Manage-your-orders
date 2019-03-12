@@ -70,8 +70,11 @@ public class BuyerOrderController {
     @GetMapping("/detail")
     public ResultVO<OrderDTO> detail(@RequestParam("openid") String openid,
                                      @RequestParam("orderId") String orderId) {
-        //TODO 不安全做法，需要改进
         OrderDTO orderDTO = orderService.findOne(orderId);
+        if(!orderDTO.getBuyerOpenid().equalsIgnoreCase(openid)) {
+            log.error("【查询订单】订单openid不一致. openid={}, OrderDTO={}", openid, orderDTO);
+            throw new SellException(ResultEnum.ORDER_OWNER_ERROR);
+        }
         return ResultVOUtil.success(orderDTO);
     }
 
@@ -79,8 +82,13 @@ public class BuyerOrderController {
     @PostMapping("/cancel")
     public ResultVO<OrderDTO> cancel(@RequestParam("openid") String openid,
                                      @RequestParam("orderId") String orderId) {
-        //TODO 不安全做法，需要改进
         OrderDTO orderDTO = orderService.findOne(orderId);
+        if(orderDTO == null)
+            return null;
+        if(!orderDTO.getBuyerOpenid().equalsIgnoreCase(openid)) {
+            log.error("【查询订单】订单openid不一致. openid={}, OrderDTO={}", openid, orderDTO);
+            throw new SellException(ResultEnum.ORDER_OWNER_ERROR);
+        }
         orderService.cancel(orderDTO);
         return ResultVOUtil.success(orderDTO);
     }
