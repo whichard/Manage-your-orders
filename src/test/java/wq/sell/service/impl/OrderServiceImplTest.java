@@ -29,6 +29,12 @@ public class OrderServiceImplTest {
 
     private final String BUYER_OPENID = "110101";
     private final String ORDER_ID = "1552271258396434636";
+
+    @Test
+    public void createList() {
+        for(int i = 0; i<50; i++)
+            create();
+    }
     @Test
     public void create() {
         OrderDTO orderDTO = new OrderDTO();
@@ -89,5 +95,12 @@ public class OrderServiceImplTest {
         OrderDTO orderDTO = orderService.findOne(ORDER_ID);
         OrderDTO result = orderService.paid(orderDTO);
         Assert.assertEquals(PayStatusEnum.SUCCESS.getCode(), result.getPayStatus());
+    }
+
+    @Test
+    public void findAllList() {
+        PageRequest request = new PageRequest(0,2);
+        Page<OrderDTO> orderDTOPage = orderService.findList(request);
+        Assert.assertNotEquals(0, orderDTOPage.getTotalElements());
     }
 }
