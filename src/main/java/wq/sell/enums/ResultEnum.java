@@ -19,6 +19,8 @@ public enum ResultEnum {
     WECHAT_MP_ERROR(20,"微信公众账号方面错误"),
     ORDER_CANCEL_SUCCESS(21,"订单取消成功"),
     ORDER_FINISH_SUCCESS(22,"订单完结成功"),
+    LOGIN_FAIL(23,"登录失败"),
+    LOGOUT_SUCCEED(24,"登出成功"),
     ;
     private Integer code;
     private String message;
