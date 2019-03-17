@@ -19,8 +19,8 @@ wechat:
   mpAppSecret: 9511982ca4050a1aff8fc88ebf8862d3
 
 projecturl:
-  wechatMpAuthorize: http://dzrxyz.natappfree.cc
-  wechatOpenAuthorize: http://dzrxyz.natappfree.cc
-  sell: http://dzrxyz.natappfree.cc
+  wechatMpAuthorize: http://b6hzcy.natappfree.cc
+  wechatOpenAuthorize: http://b6hzcy.natappfree.cc
+  sell: http://b6hzcy.natappfree.cc
 
   #http://dzrxyz.natappfree.cc/seller/login?openid=abc

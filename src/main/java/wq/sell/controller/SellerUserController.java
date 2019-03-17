@@ -44,7 +44,7 @@ public class SellerUserController {
         SellerInfo sellerInfo=sellerService.findSellerInfoByOpenid(openid);
         if(sellerInfo==null){
             map.put("msg", ResultEnum.LOGIN_FAIL.getMessage());
-            map.put("url","/seller/order/list");
+            map.put("url","/seller/login");
             return new ModelAndView("common/error");
         }
         //2.设置token至redis
@@ -70,7 +70,7 @@ public class SellerUserController {
             CookieUtil.set(response, CookieConstant.TOKEN, null, 0);
         }
         map.put("msg", ResultEnum.LOGOUT_SUCCEED.getMessage());
-        map.put("url","/seller/order/list");
+        map.put("url","/seller/login");
         return new ModelAndView("common/success", map);
     }
 }
