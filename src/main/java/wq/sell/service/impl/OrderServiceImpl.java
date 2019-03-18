@@ -23,6 +23,7 @@ import wq.sell.repository.OrderDetailRepository;
 import wq.sell.repository.OrderMasterRepository;
 import wq.sell.service.OrderService;
 import wq.sell.service.ProductService;
+import wq.sell.service.WebSocket;
 import wq.sell.utils.KeyUtil;
 
 import javax.transaction.Transactional;
@@ -46,6 +47,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private OrderMasterRepository orderMasterRepository;
+
+    @Autowired
+    private WebSocket webSocket;
 
     @Override
     @Transactional
@@ -84,8 +88,10 @@ public class OrderServiceImpl implements OrderService {
 
 //        4. 扣库存
         productService.decreaseStock(cartDTOList);
-        return orderDTO;
 
+        //   发送websocket消息
+        webSocket.sendMessage("有新的订单!" + orderDTO.getOrderId());
+        return orderDTO;
     }
 
     @Override
