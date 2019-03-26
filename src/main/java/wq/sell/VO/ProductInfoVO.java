@@ -1,4 +1,4 @@
-package wq.sell.viewobject;
+package wq.sell.VO;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

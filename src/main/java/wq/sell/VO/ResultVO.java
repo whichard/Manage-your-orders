@@ -1,6 +1,5 @@
-package wq.sell.viewobject;
+package wq.sell.VO;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 @Data

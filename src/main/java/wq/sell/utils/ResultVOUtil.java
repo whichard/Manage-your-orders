@@ -1,6 +1,6 @@
 package wq.sell.utils;
 
-import wq.sell.viewobject.ResultVO;
+import wq.sell.VO.ResultVO;
 
 public class ResultVOUtil {
 

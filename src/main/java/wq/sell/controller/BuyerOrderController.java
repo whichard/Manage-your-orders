@@ -15,7 +15,7 @@ import wq.sell.exception.SellException;
 import wq.sell.form.OrderForm;
 import wq.sell.service.OrderService;
 import wq.sell.utils.ResultVOUtil;
-import wq.sell.viewobject.ResultVO;
+import wq.sell.VO.ResultVO;
 
 import javax.validation.Valid;
 import java.util.HashMap;

@@ -9,12 +9,11 @@ import wq.sell.dataobject.ProductCategory;
 import wq.sell.dataobject.ProductInfo;
 import wq.sell.service.CategoryService;
 import wq.sell.service.ProductService;
-import wq.sell.viewobject.ProductInfoVO;
-import wq.sell.viewobject.ProductVO;
-import wq.sell.viewobject.ResultVO;
+import wq.sell.VO.ProductInfoVO;
+import wq.sell.VO.ProductVO;
+import wq.sell.VO.ResultVO;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
